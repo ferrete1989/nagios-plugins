@@ -26,7 +26,7 @@ def getTimeOfDeletingValue(conn, key):
 	conn.delete(key)
 	delete_time = (datetime.datetime.now() - before_delete_time).total_seconds()
 	if conn.get(key):
-		msg = "CRITICAL: Test value is already stored after delete it."
+		msg = "CRITICAL: Test object still alive in the database."
 		ret = 2
 		print msg
 		exit(ret)
